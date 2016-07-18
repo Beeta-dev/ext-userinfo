@@ -14,7 +14,7 @@ class AddClientAssets
     public function addAssets(ConfigureClientView $event)
     {
         if ($event->isForum()) {
-            $event->addAssets(__DIR__.'/js/forum/dist/extension.js');
+            $event->addAssets(__DIR__.'/../../js/forum/dist/extension.js');
             $event->addBootstrapper('beeta-dev/ext-userinfo/main');
         }
     }
