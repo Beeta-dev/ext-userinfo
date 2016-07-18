@@ -14,6 +14,11 @@
             }
         }
     },
+    "autoload": {
+        "psr-4": {
+            "Beeta\\UserInfo\\": "src/"
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable" : true
 }
