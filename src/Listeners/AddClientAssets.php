@@ -15,7 +15,7 @@ class AddClientAssets
     {
         if ($event->isForum()) {
             $event->addAssets(__DIR__.'/js/forum/dist/extension.js');
-            $event->addBootstrapper('beeta-dev/ext-embed/main');
+            $event->addBootstrapper('beeta-dev/ext-userinfo/main');
         }
     }
 }
