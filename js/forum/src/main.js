@@ -24,19 +24,13 @@ app.initializers.add('beeta-dev-ext-userinfo', function() {
             ddiff= fromdate.getDate()-d[1]+d[0];
             --mdiff;
         }
-        /*
-        if(ydiff> 0) age.push(ydiff+ ' year'+(ydiff> 1? 's ':' '));
-        if(mdiff> 0) age.push(mdiff+ ' month'+(mdiff> 1? 's':''));
-        if(ddiff> 0) age.push(ddiff+ ' day'+(ddiff> 1? 's':''));
-        if(age.length>1) age.splice(age.length-1,0,' and ');    
-        return age.join('');
-        */
-        var goku;
+        mdiff = (mdiff/3);
+        var goku = '';
         var g;
         for (g = 0; g < ydiff; g++) { 
             goku += "<img src='http://www.beeta.com.br/forum/img/rank/goku.png' />";
         }
-        var esfera;
+        var esfera = '';
         var e;
         for (e = 0; e < mdiff; e++) { 
             esfera += "<img src='http://www.beeta.com.br/forum/img/rank/esfera.gif' />";
