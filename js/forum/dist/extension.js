@@ -44,13 +44,14 @@ System.register('beeta-dev/ext-userinfo/main', ['flarum/extend', 'flarum/app', '
                     if(age.length>1) age.splice(age.length-1,0,' and ');    
                     return age.join('');
                     */
-                    var goku = "";
-                    var i = "";
-                    for (i = 0; i < ydiff; i++) {
+                    var goku;
+                    var g;
+                    for (g = 0; g < ydiff; g++) {
                         goku += "<img src='http://www.beeta.com.br/forum/img/rank/goku.png' />";
                     }
-                    var esfera = "";
-                    for (i = 0; i < mdiff; i++) {
+                    var esfera;
+                    var e;
+                    for (e = 0; e < mdiff; e++) {
                         esfera += "<img src='http://www.beeta.com.br/forum/img/rank/esfera.gif' />";
                     }
                     setTimeout(function () {
