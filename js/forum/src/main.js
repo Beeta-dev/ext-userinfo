@@ -50,6 +50,6 @@ app.initializers.add('beeta-dev-ext-userinfo', function() {
                         className: "Button",
                         icon: '',
                         children: 'Posts: '+user.commentsCount()+' - Topics: '+user.discussionsCount()+''
-                    }),);
+                    }),5);
     });
 });

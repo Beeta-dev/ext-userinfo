@@ -63,7 +63,7 @@ System.register('beeta-dev/ext-userinfo/main', ['flarum/extend', 'flarum/app', '
                         className: "Button",
                         icon: '',
                         children: 'Posts: ' + user.commentsCount() + ' - Topics: ' + user.discussionsCount() + ''
-                    }));
+                    }), 5);
                 });
             });
         }
