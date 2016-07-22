@@ -1,7 +1,7 @@
-System.register('beeta-dev/ext-userinfo/main', ['flarum/extend', 'flarum/app', 'flarum/components/UserCard', 'flarum/components/UserPage', 'flarum/components/Button'], function (_export) {
+System.register('beeta-dev/ext-userinfo/main', ['flarum/extend', 'flarum/app', 'flarum/components/UserCard', 'flarum/components/Post', 'flarum/components/Button'], function (_export) {
     'use strict';
 
-    var extend, app, UserCard, UserPage, Button;
+    var extend, app, UserCard, Post, Button;
     return {
         setters: [function (_flarumExtend) {
             extend = _flarumExtend.extend;
@@ -9,8 +9,8 @@ System.register('beeta-dev/ext-userinfo/main', ['flarum/extend', 'flarum/app', '
             app = _flarumApp['default'];
         }, function (_flarumComponentsUserCard) {
             UserCard = _flarumComponentsUserCard['default'];
-        }, function (_flarumComponentsUserPage) {
-            UserPage = _flarumComponentsUserPage['default'];
+        }, function (_flarumComponentsPost) {
+            Post = _flarumComponentsPost['default'];
         }, function (_flarumComponentsButton) {
             Button = _flarumComponentsButton['default'];
         }],
@@ -41,21 +41,17 @@ System.register('beeta-dev/ext-userinfo/main', ['flarum/extend', 'flarum/app', '
                     var goku = '';
                     var g;
                     for (g = 0; g < ydiff; g++) {
-                        goku += "<img src='http://www.beeta.com.br/forum/img/rank/goku.png' />";
+                        goku += "<img src='http://www.beeta.com.br/forum/assets/rank/goku.png' />";
                     }
                     var esfera = '';
                     var e;
                     for (e = 0; e < mdiff; e++) {
-                        esfera += "<img src='http://www.beeta.com.br/forum/img/rank/esfera.gif' />";
+                        esfera += "<img src='http://www.beeta.com.br/forum/assets/rank/esfera.gif' />";
                     }
                     setTimeout(function () {
                         $(".UserCard--popover .UserCard-info").append("<div class='daterank'>" + goku + "<br/>" + esfera + "</div>");
+                        $(".UserHero .UserCard-info").append("<div class='daterank daterankhero'>" + goku + "<br/>" + esfera + "</div>");
                     }, 100);
-                    if ($(".daterankhero").html() == undefined) {
-                        setTimeout(function () {
-                            $(".UserHero .UserCard-info").append("<div class='daterank daterankhero'>" + goku + "<br/>" + esfera + "</div>");
-                        }, 100);
-                    }
                 });
                 extend(UserCard.prototype, 'infoItems', function (items) {
                     var user = this.props.user;
@@ -64,6 +60,11 @@ System.register('beeta-dev/ext-userinfo/main', ['flarum/extend', 'flarum/app', '
                         icon: '',
                         children: 'Posts: ' + user.commentsCount() + ' - Topics: ' + user.discussionsCount() + ''
                     }), 5);
+                });
+                extend(Post.prototype, 'footerItems', function (items) {
+                    var userId = this.props.post.data.relationships.user.data.id;
+                    var bio = this.props.post.store.data.users[userId].data.attributes.bio;
+                    items.add("assinatura", bio);
                 });
             });
         }
